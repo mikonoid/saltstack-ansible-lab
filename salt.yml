@@ -1,0 +1,18 @@
+---
+- hosts: saltmaster
+  become: true
+  become_user: root
+  remote_user: vagrant
+  #user: vagrant
+
+  roles:
+    - salt-master-install
+
+- hosts: saltminion
+  become: true
+  become_user: root
+  remote_user: vagrant
+  #user: vagrant
+
+  roles:
+    - salt-minion-install

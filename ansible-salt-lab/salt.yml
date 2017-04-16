@@ -1,0 +1,12 @@
+---
+- hosts: salt-master
+  user: vagrant
+
+  roles:
+    - salt-master-install
+
+- hosts: salt-minion
+  user: vagrant
+
+  roles:
+    - salt-minion-install

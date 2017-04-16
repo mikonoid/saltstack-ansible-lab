@@ -1,0 +1,37 @@
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:saltstack/salt
+
+
+sudo apt-get update
+
+sudo apt-get install salt-master
+sudo apt-get install salt-minion
+
+vi /etc/salt/minion
+
+master: localhost
+
+
+service salt-minion restart
+
+
+root@saltmaster:~# salt-key -L
+Accepted Keys:
+Denied Keys:
+Unaccepted Keys:
+saltmaster
+Rejected Keys:
+root@saltmaster:~# salt-key -a 'saltmaster'
+The following keys are going to be accepted:
+Unaccepted Keys:
+saltmaster
+Proceed? [n/Y] Y
+Key for minion saltmaster accepted.
+
+
+
+[DEPRECATION WARNING]: Instead of sudo/sudo_user, use become/become_user and
+make sure become_method is 'sudo' (default).
+This feature will be removed in a
+future release. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
